@@ -38,10 +38,10 @@ public class ProjectDto {
     @Nullable
     private Date dateStart;
 
-    @NotNull
+    @Nullable
     private Date dateCreate;
 
-    @NotNull
+    @Nullable
     @Enumerated(EnumType.STRING)
     private Status status;
 }

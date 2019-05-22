@@ -1,5 +1,6 @@
 package ru.zagorodnikova.tm.taskmanager.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -41,10 +42,10 @@ public class Task {
     @Nullable
     private Date dateFinish;
 
-    @NotNull
+    @Nullable
     private Date dateCreate = new Date();
 
-    @NotNull
+    @Nullable
     @Enumerated(EnumType.STRING)
     private Status status = Status.SCHEDULED;
 

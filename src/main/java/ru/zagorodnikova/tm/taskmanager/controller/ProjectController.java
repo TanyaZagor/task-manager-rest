@@ -1,6 +1,9 @@
 package ru.zagorodnikova.tm.taskmanager.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import ru.zagorodnikova.tm.taskmanager.dto.ProjectDto;
 import ru.zagorodnikova.tm.taskmanager.entity.Project;
@@ -15,12 +18,14 @@ public class ProjectController {
 
     @Autowired
     private ProjectRepository projectRepository;
+
     @Autowired
     private ProjectDtoRepository projectDtoRepository;
 
     @GetMapping(value = "/projects", produces = "application/json")
-    public List<Project> findAll() {
-        return projectRepository.findAll();
+    public Page find(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int limit) {
+        Pageable pageable = PageRequest.of(page - 1, limit);
+        return projectRepository.findAll(pageable);
     }
 
     @PostMapping(value = "/projects/merge", produces = "application/json", consumes = "application/json")

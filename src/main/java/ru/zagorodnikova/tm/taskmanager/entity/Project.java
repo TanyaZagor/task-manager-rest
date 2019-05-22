@@ -43,10 +43,10 @@ public class Project {
     @Nullable
     private Date dateStart;
 
-    @NotNull
+    @Nullable
     private Date dateCreate = new Date();
 
-    @NotNull
+    @Nullable
     @Enumerated(EnumType.STRING)
     private Status status = Status.SCHEDULED;
 
