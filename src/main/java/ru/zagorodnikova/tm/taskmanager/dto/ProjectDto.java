@@ -10,7 +10,6 @@ import ru.zagorodnikova.tm.taskmanager.entity.enumeration.Status;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @Getter
 @Setter
