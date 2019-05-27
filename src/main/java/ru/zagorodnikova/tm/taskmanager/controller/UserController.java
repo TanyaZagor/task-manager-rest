@@ -19,7 +19,8 @@ public class UserController {
 
     @GetMapping(value = "/user", produces = "application/json")
     private User findOne() {
-        return userRepository.findByLogin("test");
+        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return userDetails.getUser();
     }
 
 }
