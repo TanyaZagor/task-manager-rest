@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.zagorodnikova.tm.taskmanager.entity.Project;
+import ru.zagorodnikova.tm.taskmanager.entity.User;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ import java.util.List;
 public interface ProjectRepository extends JpaRepository<Project, String> {
 
     Page findAllByUserId(String userId, Pageable pageable);
+
+    List<User> findAllByUserId(String userId);
 }
